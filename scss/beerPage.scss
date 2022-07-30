@@ -1,0 +1,40 @@
+nav{
+    background-image: url('/img/beer_img.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 120px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .nav__content{
+        padding: 10px;
+        .search__content{
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 15px;
+            padding: 10px;
+            .submit__btn{
+                background: none;
+                width: 50px;
+                border: none;
+                img{
+                    width: 40px;
+                }
+            }
+            .search__input{
+                width: 100%;
+                padding: 10px;
+                font-size: large;
+                font-weight: bold;
+                border: none;
+                border-radius: 15px;
+            }
+            .search__input:focus, input:focus{
+                outline: none;
+            }
+        }
+    }
+}
