@@ -1,6 +1,8 @@
 import React , {useState,useEffect} from 'react'
 import { useRouter } from 'next/router'
 import axios from 'axios'
+import { config } from '../../config';
+
 
 function BeerPage(){
   
@@ -9,7 +11,7 @@ function BeerPage(){
 
   useEffect(() => {
     const options = {
-      url: `https://api.punkapi.com/v2/beers/${asPath.replace(/[^0-9]/g,'')}`,
+      url: `${config.mainUrl}beers/${asPath.replace(/[^0-9]/g,'')}`,
       method: 'GET',
       headers: {
         'Accept': 'application/json',

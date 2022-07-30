@@ -2,6 +2,8 @@ import React , {useState,useEffect} from 'react'
 import axios from 'axios'
 import BeerCard from '../../components/beerCard/BeerCard'
 import { useRouter } from 'next/router'
+import { config } from '../../config';
+
 
 
 function Search (){
@@ -13,7 +15,7 @@ function Search (){
 
   useEffect(() => {
     const options = {
-        url: `https://api.punkapi.com/v2/beers?beer_name=${asPath.split('/')[2]}`,
+        url: `${config.mainUrl}beers?beer_name=${asPath.split('/')[2]}`,
         method: 'GET',
         headers: {
           'Accept': 'application/json',

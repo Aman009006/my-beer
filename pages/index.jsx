@@ -3,8 +3,7 @@ import BeerCard from '../components/beerCard/BeerCard'
 import axios from 'axios'
 import ReactPaginate from 'react-paginate'
 import { useRouter } from 'next/router'
-
-
+import { config } from '../config';
 
 function Main (){
 
@@ -22,7 +21,7 @@ function Main (){
 
   useEffect(() => {
     const options = {
-      url: `https://api.punkapi.com/v2/beers?page=${beerPage}`,
+      url: `${config.mainUrl}beers?page=${beerPage}`,
       method: 'GET',
       headers: {
         'Accept': 'application/json',
