@@ -20,8 +20,6 @@ function BeerPage(){
     axios(options)
       .then(response => {
       setBeerCard(response.data[0])
-      console.log(response.data[0]);
-
       });
   }, [asPath]);
 

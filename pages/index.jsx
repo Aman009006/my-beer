@@ -2,9 +2,14 @@ import React , {useState,useEffect} from 'react'
 import BeerCard from '../components/beerCard/BeerCard'
 import axios from 'axios'
 import ReactPaginate from 'react-paginate'
+import { useRouter } from 'next/router'
+
 
 
 function Main (){
+
+  const router = useRouter()
+
 
   const [beer,setBeer]=useState([])
   const [beerName,setBeerName]=useState('')
@@ -12,19 +17,7 @@ function Main (){
 
   
   function getSearchBeer(){
-    const options = {
-      url: `https://api.punkapi.com/v2/beers?beer_name=${beerName}`,
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json;charset=UTF-8'
-      }
-    };
-    
-    axios(options)
-      .then(response => {
-        setBeer(response.data)
-      });
+    router.push(`/search/${beerName}`)
   }
 
   useEffect(() => {
@@ -48,6 +41,7 @@ function Main (){
     <>
       <nav>
         <div className="nav__content container">
+          
           <div className="search__content">
           <input onChange={(e)=>setBeerName(e.target.value)} type="text" className="search__input" />
           <button onClick={()=>getSearchBeer()} className="submit__btn"> <img src="/img/search.png" alt="" /> </button>

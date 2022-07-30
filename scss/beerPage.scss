@@ -2,7 +2,7 @@ nav{
     background-image: url('/img/beer_img.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 120px;
+    height: 140px;
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
     display: flex;
@@ -82,5 +82,5 @@ nav{
     max-width: 600px;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
 }
