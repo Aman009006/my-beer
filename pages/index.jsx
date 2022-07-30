@@ -1,4 +1,4 @@
-import React , {useState} from 'react'
+import React , {useState,useEffect} from 'react'
 import BeerCard from '../components/beerCard/BeerCard'
 import axios from 'axios'
 
@@ -20,12 +20,25 @@ function Main (){
     
     axios(options)
       .then(response => {
-        console.log(response);
         setBeer(response.data)
       });
   }
 
-
+  useEffect(() => {
+    const options = {
+      url: `https://api.punkapi.com/v2/beers`,
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json;charset=UTF-8'
+      }
+    };
+    
+    axios(options)
+      .then(response => {
+      setBeer(response.data)
+      });
+  }, []);
 
   return(
     <>
@@ -40,9 +53,9 @@ function Main (){
       <div className="cards__content container">
         {beer.map((b)=>{
           return(
-            <>
-            <BeerCard beer={b}/>
-            </>
+            <div key={b.id}>
+            <BeerCard key={b.id} beer={b}/>
+            </div>
           )
         })}
       </div>
