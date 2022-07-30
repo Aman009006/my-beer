@@ -1,13 +1,16 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 
 function BeerCard({beer}){
-console.log(beer);
+  const router = useRouter()
   return(
     <>
-    <div className="beer__card">
-      <img src="" alt="" className="beer__img" />
-      <h3 className="beer__title"></h3>
-      <p className="descr"></p>
+    <div onClick={()=>router.push(`/beer/${beer.id}`)} className="beer__card">
+      <img src={beer.image_url} alt="beer" className="beer__img" />
+      <div className="beer__text">
+      <h3 className="beer__title">{beer.name}</h3>
+      <p className="beer__descr">{beer.description.substring(0,150)}...</p>
+      </div>
     </div>
     </>
   )

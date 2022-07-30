@@ -38,7 +38,13 @@ function Main (){
         </div>
       </nav>
       <div className="cards__content container">
-        <BeerCard beer={beer} />
+        {beer.map((b)=>{
+          return(
+            <>
+            <BeerCard beer={b}/>
+            </>
+          )
+        })}
       </div>
     </>
   )
